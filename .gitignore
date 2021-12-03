@@ -1,0 +1,24 @@
+# Editor cruft
+**/.vscode/
+
+# Build & debug cruft
+**/.build*/*
+**/bin/*
+*.o
+*.so*
+*.dylib
+*.xe
+*.vcd
+*.xi
+*.i
+*.a
+*.xmt
+**/_build/
+**/build/
+**/build_*/
+*.gtkw
+*.swmem
+
+# macOS cruft
+.DS_Store
+
