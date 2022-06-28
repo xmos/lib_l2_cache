@@ -2,12 +2,6 @@
 L2 Cache
 ####################
 
-*****************
-Install XCore SDK
-*****************
-
-See: https://github.com/xmos/xcore_sdk/blob/develop/documents/quick_start/installation.rst
-
 *********************************
 Building and running the firmware
 *********************************
