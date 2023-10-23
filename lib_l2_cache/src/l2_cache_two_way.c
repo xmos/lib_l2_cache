@@ -140,8 +140,6 @@ void l2_cache_setup_two_way(
 
     // bytes
     const unsigned entry_size = N_WAY * (line_size_bytes + sizeof(tag_t) + sizeof(uint32_t));
-    // bytes
-    const unsigned cache_size = entry_size * line_count;
 
     DEBUG_ASSERT( line_size_bytes >= 32 ); // minimum line size is 32 bytes
     DEBUG_ASSERT( (1<<line_bits) == line_size_bytes); // line_size_bytes is a power of 2
@@ -157,7 +155,10 @@ void l2_cache_setup_two_way(
     cache_config.line_size.bits = line_bits;
     cache_config.entry_bytes = entry_size;
 
-    if(L2_CACHE_DEBUG_ON) {
+    #if L2_CACHE_DEBUG_ON
+        // bytes
+        const unsigned cache_size = entry_size * line_count;
+
         const unsigned buffer_end = ((unsigned)cache_buffer) + cache_size - 1;
 
         DEBUG_PRINT("%s","Cache Type: 2-Way Set Associative (read-only)\n");
@@ -169,7 +170,7 @@ void l2_cache_setup_two_way(
         DEBUG_PRINT("Read Func:   0x%08X\n", (unsigned) read_func);
         DEBUG_PRINT("Cache Size: %u B\n", line_count * 2*line_size_bytes);
         DEBUG_PRINT("Cache Entry Size: %u B\n", cache_config.entry_bytes);
-    }
+    #endif // L2_CACHE_DEBUG_ON
 
     for(int k = 0; k < line_count; k++){
         for(int a = 0; a < N_WAY; a++) {
