@@ -4,7 +4,7 @@ L2 cache library
 Features
 ........
 
-Software defined L2 cache for flash accesses.
+The L2 cache component uses the XS3 *swmem* feature to handle reads from external flash. It has the advantage of read caching using on-chip RAM for additional performance and provides memory mapped access.
 
 Software version and dependencies
 .................................
