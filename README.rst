@@ -1,15 +1,24 @@
 L2 cache library
 ================
 
-*****************
+Features
+........
+
+Software defined L2 cache for flash accesses.
+
+Software version and dependencies
+.................................
+
+The CHANGELOG contains information about the current and previous versions.
+For a list of direct dependencies, look for DEPENDENT_MODULES in lib_random/module_build_info.
+
 Install XCore SDK
-*****************
+.................
 
 See: https://github.com/xmos/xcore_sdk/blob/develop/documents/quick_start/installation.rst
 
-*********************************
 Building and running the firmware
-*********************************
+.................................
 
 Make a directory for the build.
 
@@ -37,9 +46,8 @@ To run the firmware with hardware, run:
 
     $ make run
 
-***************************
 Useful Build Configurations
-***************************
+...........................
 
 The L2 cache has a debug mode which will track and printout some useful metrics, like hit rate.  Note that this
 mode will make the timing metrics unreliable so those are not printed.  To configure and build with the L2 cache
