@@ -1,4 +1,4 @@
-// Copyright 2020-2021 XMOS LIMITED.
+// Copyright 2020-2023 XMOS LIMITED.
 // This Software is subject to the terms of the XMOS Public Licence: Version 1.
 
 #include <assert.h>
@@ -73,7 +73,7 @@ void l2_cache_setup_direct_map(
     l2_cache_config.line_size_bytes = line_size_bytes;
     l2_cache_config.line_size = line_bits;
 
-    if(L2_CACHE_DEBUG_ON) {
+    #if L2_CACHE_DEBUG_ON
         // First two address bits for SwMem are always 01  (0x40000000 - 0x7FFFFFFF), so
         // they needn't be included in the tag.
 
@@ -91,7 +91,7 @@ void l2_cache_setup_direct_map(
         DEBUG_PRINT("Offset Mask: 0x%08X\n", (unsigned) l2_cache_config.offset_mask);
         DEBUG_PRINT("Cache Size: %u B\n", line_count * line_size_bytes);
         DEBUG_PRINT("Tag Table Size: %u B\n", line_count * sizeof(int));
-    }
+    #endif // L2_CACHE_DEBUG_ON
 
     for(int k = 0; k < line_count; k++) {
         l2_cache_config.tag_table[k] = DIRTY_TAG_VALUE;
